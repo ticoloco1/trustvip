@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:        #ffffff;
+  --bg2:       #fafafa;
+  --surface:   #f5f5f5;
+  --surface2:  #eeeeee;
+  --border:    #e5e5e5;
+  --border2:   #d4d4d4;
+  --text:      #111111;
+  --text2:     #525252;
+  --text3:     #a3a3a3;
+  --gold:      #c9a84c;
+  --gold-light:#fef3c7;
+  --gold-dark: #92700a;
+  --navy:      #1e3a8a;
+  --accent:    #c9a84c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #f5f5f5; }
+::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 2px; }
+
+/* ── GOLD ACCENTS ──────────────────────────── */
+.text-gold { color: var(--gold); }
+.bg-gold { background: var(--gold); }
+.border-gold { border-color: var(--gold); }
+
+.gold-gradient {
+  background: linear-gradient(135deg, #c9a84c, #f5d48a, #c9a84c);
+}
+.gold-text {
+  background: linear-gradient(135deg, #92700a, #c9a84c, #f5d48a);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.navy-text {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* ── CARDS ─────────────────────────────────── */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.card-elevated {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+}
+.card-gold {
+  background: linear-gradient(135deg, #fffbeb, #ffffff);
+  border: 1px solid #fde68a;
+  border-radius: 16px;
+}
+
+/* ── BUTTONS ───────────────────────────────── */
+.btn-primary {
+  background: var(--gold);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: #b8961f; }
+
+.btn-navy {
+  background: var(--navy);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.btn-navy:hover { background: #1d4ed8; }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  font-weight: 500;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── INPUTS ────────────────────────────────── */
+input, textarea, select {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+.input {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.input:focus { border-color: var(--gold); }
+.input::placeholder { color: var(--text3); }
+
+/* ── ANIMATIONS ────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes slideDown {
+  from { opacity:0; transform:translateY(-8px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes ticker {
+  from { transform:translateX(0); }
+  to   { transform:translateX(-50%); }
+}
+
+.animate-fade-up   { animation: fadeUp 0.4s ease; }
+.animate-slide-down{ animation: slideDown 0.3s ease; }
+.animate-ticker    { animation: ticker 35s linear infinite; }
+
+.no-scrollbar::-webkit-scrollbar { display:none; }
+.no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+
+/* ── BADGE STYLES ──────────────────────────── */
+.badge-blue  { background:#dbeafe; color:#1e40af; border:1px solid #bfdbfe; }
+.badge-gold  { background:#fef3c7; color:#92700a; border:1px solid #fde68a; }
+.badge-green { background:#dcfce7; color:#166534; border:1px solid #bbf7d0; }
+.badge-red   { background:#fee2e2; color:#991b1b; border:1px solid #fecaca; }
+.badge-gray  { background:#f5f5f5; color:#525252; border:1px solid #e5e5e5; }
+
+/* ── SECTION DIVIDER ───────────────────────── */
+.divider { height:1px; background:var(--border); }
+
+/* ── TICKER ────────────────────────────────── */
+.ticker-wrap { overflow:hidden; white-space:nowrap; }
