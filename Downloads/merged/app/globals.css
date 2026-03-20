@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── LIGHT THEME (default) ──────────────────────── */
+:root {
+  --accent:  #6d28d9;
+  --bg:      #f9fafb;
+  --surface: #ffffff;
+  --border:  #e5e7eb;
+  --text:    #111827;
+  --muted:   #6b7280;
+  --radius:  16px;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+html { font-size:15px; }
+
+body {
+  background: #f9fafb;
+  color: #111827;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── SHARED NAV (white bar used everywhere) ─────── */
+.site-nav {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+/* ── TICKER ─────────────────────────────────────── */
+.ticker-wrap { overflow:hidden; white-space:nowrap; }
+.ticker-inner { display:inline-flex; animation:ticker 35s linear infinite; }
+.ticker-inner:hover { animation-play-state:paused; }
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── CARD ────────────────────────────────────────── */
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+/* ── BUTTON ──────────────────────────────────────── */
+.btn-primary {
+  background: #6d28d9;
+  color: white; font-weight: 700; border-radius: 12px;
+  padding: 11px 22px; border: none; cursor: pointer;
+  font-family: inherit; font-size: 15px;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-primary:hover { background: #5b21b6; }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-outline {
+  background: white; color: #6d28d9;
+  border: 2px solid #6d28d9; border-radius: 12px;
+  padding: 10px 22px; font-weight: 700; cursor: pointer;
+  font-family: inherit; font-size: 15px;
+  transition: all 0.15s;
+}
+.btn-outline:hover { background: #f5f3ff; }
+
+/* ── INPUT ───────────────────────────────────────── */
+.input {
+  width: 100%;
+  background: white;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #111827;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input:focus { border-color: #6d28d9; }
+.input::placeholder { color: #9ca3af; }
+
+/* ── SCROLLBAR ───────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f3f4f6; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* ── ANIMATIONS ──────────────────────────────────── */
+@keyframes fadeUp   { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+@keyframes slideDown{ from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes spin     { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+.animate-fade-up   { animation: fadeUp 0.4s ease; }
+.animate-fade-in   { animation: fadeIn 0.3s ease; }
+.no-scrollbar::-webkit-scrollbar { display:none; }
+.no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
