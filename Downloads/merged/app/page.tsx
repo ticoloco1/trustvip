@@ -178,7 +178,7 @@ export default function Home() {
       {/* Pricing */}
       <div style={{ maxWidth:900, margin:'0 auto 100px', padding:'0 24px', position:'relative', zIndex:1 }}>
         <h2 style={{ textAlign:'center', fontSize:38, fontWeight:800, color:'#111827', marginBottom:12, letterSpacing:'-0.02em' }}>
-          Simple pricing
+          Simple pricing" id="pricing
         </h2>
         <p style={{ textAlign:'center', fontSize:16, color:'rgba(55,65,81,0.4)', marginBottom:52 }}>
           Pay in USDC · Cancel anytime · No free plan (we're serious)
